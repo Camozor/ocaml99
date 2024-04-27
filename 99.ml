@@ -16,7 +16,12 @@ let rec at (nth: int) (xs: 'a list): 'a option =
         | (1, x :: tail) -> Some x
         | (n, x :: tail) -> at (n - 1) tail
 
-let length (xs: 'a list): int =
+let rec length (xs: 'a list): int =
+        match xs with
+        | [] -> 0
+        | x :: tail -> 1 + (length tail)
+
+let length_tail_recursive (xs: 'a list): int =
         let rec aux xs n =
         match xs with
         | [] -> n
