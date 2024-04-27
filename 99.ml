@@ -29,3 +29,7 @@ let rev (xs: 'a list): 'a list =
                 | [] -> acc
                 | x :: tail -> aux tail (x :: acc)
         in aux xs [];;
+
+let is_palindrome (xs: string list): bool =
+        xs = List.rev xs
+
