@@ -22,3 +22,10 @@ let length (xs: 'a list): int =
         | [] -> n
         | x :: tail -> aux tail (n + 1)
         in aux xs 0;;
+
+let rev (xs: 'a list): 'a list =
+        let rec aux (l: 'a list) (acc: 'a list) =
+                match l with
+                | [] -> acc
+                | x :: tail -> aux tail (x :: acc)
+        in aux xs [];;
